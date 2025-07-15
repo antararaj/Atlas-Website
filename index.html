@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTech Innovations - Next Generation Aerospace Solutions</title>
+    
+    <!-- Google Fonts for clean, professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* =======================
+           CSS RESET & BASE STYLES
+           ======================= */
+        
+        /* Remove default margins and padding from all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Makes width/height calculations easier */
+        }
+        
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Base body styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #e0e6ed; /* Light gray text */
+            background-color: #0a0f1c; /* Dark blue background */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        /* =======================
+           NAVIGATION BAR
+           ======================= */
+        
+        /* Fixed navigation bar that stays at top when scrolling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 15, 28, 0.95); /* Semi-transparent dark background */
+            backdrop-filter: blur(10px); /* Blur effect for modern look */
+            padding: 1rem 0;
+            z-index: 1000; /* Ensures nav stays above other content */
+            transition: all 0.3s ease; /* Smooth transitions */
+        }
+        
+        /* Container for nav content with max width and centering */
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        /* Company logo/name styling */
+        .logo {
+            font-family: 'Orbitron', monospace; /* Futuristic font */
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #64b5f6; /* Light blue accent color */
+        }
+        
+        /* Navigation menu list */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem; /* Space between menu items */
+        }
+        
+        /* Individual navigation links */
+        .nav-menu a {
+            text-decoration: none;
+            color: #e0e6ed;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative; /* For hover effect */
+        }
+        
+        /* Hover effect for nav links */
+        .nav-menu a:hover {
+            color: #64b5f6;
+        }
+        
+        /* Underline animation on hover */
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #64b5f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile menu button (hidden by default) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #e0e6ed;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* =======================
+           HERO SECTION
+           ======================= */
+        
+        .hero {
+            height: 100vh; /* Full viewport height */
+            background: linear-gradient(
+                rgba(10, 15, 28, 0.7), /* Dark overlay */
+                rgba(10, 15, 28, 0.7)
+            ),
+            url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23001122"/><stop offset="100%" style="stop-color:%23002244"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23sky)"/><polygon points="0,600 300,500 600,520 900,480 1200,500 1200,800 0,800" fill="%23000a1a" opacity="0.8"/><circle cx="100" cy="100" r="2" fill="%23ffffff" opacity="0.8"/><circle cx="300" cy="80" r="1" fill="%23ffffff" opacity="0.6"/><circle cx="500" cy="120" r="1.5" fill="%23ffffff" opacity="0.7"/><circle cx="700" cy="90" r="1" fill="%23ffffff" opacity="0.5"/><circle cx="900" cy="110" r="2" fill="%23ffffff" opacity="0.8"/><circle cx="1100" cy="70" r="1" fill="%23ffffff" opacity="0.6"/></svg>'); /* Aerospace-themed background */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Container for hero content */
+        .hero-content {
+            max-width: 800px;
+            z-index: 2; /* Above background */
+            animation: fadeInUp 1s ease-out; /* Entrance animation */
+        }
+        
+        /* Main headline */
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #64b5f6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Tagline/subtitle */
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Call-to-action button */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #1565c0, #64b5f6);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(100, 181, 246, 0.4);
+        }
+        
+        /* Floating animation for aerospace elements */
+        .floating-element {
+            position: absolute;
+            color: rgba(100, 181, 246, 0.1);
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-element:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+        
+        /* =======================
+           SECTION STYLES
+           ======================= */
+        
+        /* Common section styling */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        /* Section headers */
+        .section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #64b5f6;
+        }
+        
+        /* About section specific styles */
+        .about {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+        }
+        
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #64b5f6;
+        }
+        
+        /* =======================
+           PROJECTS SECTION
+           ======================= */
+        
+        .projects {
+            background: #0a0f1c;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: linear-gradient(145deg, #1a2332, #0f1419);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(100, 181, 246, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 181, 246, 0.2);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #1565c0, #64b5f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            color: #64b5f6;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        /* =======================
+           NEWS SECTION
+           ======================= */
+        
+        .news {
+            background: linear-gradient(135deg, #1a2332 0%, #0a0f1c 100%);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .news-item {
+            background: rgba(26, 35, 50, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #64b5f6;
+            transition: transform 0.3s ease;
+        }
+        
+        .news-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .news-date {
+            color: #64b5f6;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .news-item h3 {
+            margin: 0.5rem 0;
+            color: #e0e6ed;
+        }
+        
+        /* =======================
+           CONTACT SECTION
+           ======================= */
+        
+        .contact {
+            background: #0a0f1c;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            background: linear-gradient(145deg, #1a2332, #0f1419);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 181, 246, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #64b5f6;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(26, 35, 50, 0.5);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            border-radius: 5px;
+            color: #e0e6ed;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #1565c0, #64b5f6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 181, 246, 0.3);
+        }
+        
+        .contact-info {
+            padding: 2rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(26, 35, 50, 0.3);
+            border-radius: 10px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #64b5f6;
+            margin-right: 1rem;
+            width: 30px;
+        }
+        
+        /* =======================
+           FOOTER
+           ======================= */
+        
+        .footer {
+            background: #050a14;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(100, 181, 246, 0.1);
+        }
+        
+        /* =======================
+           ANIMATIONS
+           ======================= */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* =======================
+           RESPONSIVE DESIGN
+           ======================= */
+        
+        /* Tablet styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Hide desktop menu on mobile */
+            }
+            
+            .mobile-menu-btn {
+                display: block; /* Show mobile menu button */
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    <!-- Fixed navigation that stays at top when scrolling -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Company logo/name -->
+            <div class="logo">AeroTech</div>
+            
+            <!-- Desktop navigation menu -->
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile menu button (shown on small screens) -->
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <!-- Main landing area with company introduction -->
+    <section id="home" class="hero">
+        <!-- Floating aerospace-themed icons for visual appeal -->
+        <div class="floating-element"><i class="fas fa-rocket"></i></div>
+        <div class="floating-element"><i class="fas fa-satellite"></i></div>
+        <div class="floating-element"><i class="fas fa-plane"></i></div>
+        
+        <!-- Main hero content -->
+        <div class="hero-content">
+            <h1>AeroTech Innovations</h1>
+            <p>Pioneering the future of aerospace technology with cutting-edge solutions for tomorrow's challenges</p>
+            <a href="#about" class="cta-button">Explore Our Mission</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <!-- Company mission, values, and key statistics -->
+    <section id="about" class="section about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <!-- Company description and mission -->
+            <div class="about-text">
+                <h3>Our Mission</h3>
+                <p>At AeroTech Innovations, we're dedicated to revolutionizing aerospace technology through innovative design, sustainable engineering, and cutting-edge research. Founded by aerospace engineers with decades of industry experience, we specialize in developing next-generation aircraft systems, satellite technologies, and propulsion solutions.</p>
+                
+                <p>Our commitment to excellence drives us to push the boundaries of what's possible in aerospace, while maintaining the highest standards of safety, reliability, and environmental responsibility.</p>
+                
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Innovation:</strong> Constantly pushing technological boundaries</li>
+                    <li><strong>Safety:</strong> Uncompromising commitment to safety standards</li>
+                    <li><strong>Sustainability:</strong> Developing eco-friendly aerospace solutions</li>
+                    <li><strong>Excellence:</strong> Delivering superior quality in every project</li>
+                </ul>
+            </div>
+            
+            <!-- Company statistics and achievements -->
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div>Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div>Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div>Expert Engineers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div>Patents Filed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <!-- Showcase of key innovations and aircraft designs -->
+    <section id="projects" class="section projects">
+        <h2>Our Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1: Advanced Propulsion System -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Advanced Propulsion System</h3>
+                    <p>Revolutionary hybrid propulsion technology that reduces fuel consumption by 30% while increasing thrust efficiency. This breakthrough system combines traditional jet propulsion with electric assistance for optimal performance.</p>
+                    <p><strong>Status:</strong> In Development | <strong>Timeline:</strong> 2024-2026</p>
+                </div>
+            </div>
+
+            <!-- Project 2: Satellite Communication Array -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Next-Gen Satellite Array</h3>
+                    <p>High-frequency communication satellite constellation designed for global internet coverage and emergency communications. Features advanced beam-forming technology and self-repairing systems.</p>
+                    <p><strong>Status:</strong> Testing Phase | <strong>Timeline:</strong> 2023-2025</p>
+                </div>
+            </div>
+
+            <!-- Project 3: Autonomous Drone Platform -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-helicopter"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Autonomous Drone Platform</h3>
+                    <p>AI-powered autonomous aircraft platform for cargo delivery, surveillance, and emergency response. Capable of 500km range with advanced obstacle avoidance and weather adaptation systems.</p>
+                    <p><strong>Status:</strong> Prototype Complete | <strong>Timeline:</strong> 2024</p>
+                </div>
+            </div>
+
+            <!-- Project 4: Supersonic Transport -->
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Supersonic Transport</h3>
+                    <p>Commercial supersonic aircraft design that eliminates sonic boom through innovative wing geometry and engine placement. Reduces cross-continental flight times by 60%.</p>
+                    <p><strong>Status:</strong> Design Phase | <strong>Timeline:</strong> 2025-2030</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <!-- Company announcements, milestones, and updates -->
+    <section id="news" class="section news">
+        <h2>Latest News</h2>
+        <div class="news-grid">
+            <!-- News Item 1 -->
+            <div class="news-item">
+                <div class="news-date">December 15, 2023</div>
+                <h3>AeroTech Secures $50M Series B Funding</h3>
+                <p>Leading aerospace venture capital firms invest in our advanced propulsion technology, enabling accelerated development of our hybrid engine systems and expansion of our research facilities.</p>
+            </div>
+
+            <!-- News Item 2 -->
+            <div class="news-item">
+                <div class="news-date">November 28, 2023</div>
+                <h3>Successful Test Flight of Autonomous Drone Platform</h3>
+                <p>Our autonomous cargo drone completed a 400km test flight, demonstrating advanced AI navigation and obstacle avoidance capabilities. Commercial deployment expected in Q2 2024.</p>
+            </div>
+
+            <!-- News Item 3 -->
+            <div class="news-item">
+                <div class="news-date">October 10, 2023</div>
+                <h3>Partnership with Global Aerospace Leaders</h3>
+                <p>Strategic partnership announced with major aerospace manufacturers to integrate our propulsion technology into next-generation commercial aircraft, marking a significant milestone in sustainable aviation.</p>
+            </div>
+
+            <!-- News Item 4 -->
+            <div class="news-item">
+                <div class="news-date">September 22, 2023</div>
+                <h3>Patent Approved for Revolutionary Wing Design</h3>
+                <p>U.S. Patent Office approves our innovative wing geometry that reduces drag by 25% and eliminates sonic boom in supersonic flight, paving the way for quiet supersonic transport.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <!-- Contact form and company contact information -->
+    <section id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <!-- Contact form for inquiries -->
+            <div class="contact-form">
+                <h3>Get In Touch</h3>
+                <form>
+                    <!-- Name input field -->
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <!-- Email input field -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <!-- Company input field -->
+                    <div class="form-group">
+                        <label for="company">Company (Optional)</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <!-- Message textarea -->
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
+                    </div>
+                    
+                    <!-- Submit button -->
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Company contact information -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                
+                <!-- Office address -->
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Headquarters</h4>
+                        <p>2500 Aerospace Boulevard<br>
+                        Innovation District<br>
+                        Seattle, WA 98108</p>
+                    </div>
+                </div>
+                
+                <!-- Phone number -->
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-AERO<br>
+                        Mon-Fri 8:00 AM - 6:00 PM PST</p>
+                    </div>
+                </div>
+                
+                <!-- Email address -->
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info@aerotechinnovations.com<br>
+                        careers@aerotechinnovations.com</p>
+                    </div>
+                </div>
+                
+                <!-- Business hours -->
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
+                        Saturday: 9:00 AM - 2:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- Simple footer with copyright information -->
+    <footer class="footer">
+        <div class="section">
+            <p>&copy; 2023 AeroTech Innovations. All rights reserved. | Pioneering the Future of Aerospace Technology</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <!-- Scripts for smooth scrolling and interactive features -->
+    <script>
+        // =======================
+        // SMOOTH SCROLLING NAVIGATION
+        // =======================
+        
+        // Get all navigation links that point to sections
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                
+                // Get the target section ID from the link
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // If target section exists, scroll to it smoothly
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth', // Smooth scrolling animation
+                        block: 'start' // Align to top of viewport
+                    });
+                }
+            });
+        });
+        
+        // =======================
+        // NAVBAR BACKGROUND ON SCROLL
+        // =======================
+        
+        // Change navbar appearance when scrolling
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            
+            // If scrolled down more than 50px, add background
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 15, 28, 0.95)';
+                navbar.style.backdropFilter = 'blur(15px)';
+            } else {
+                // At top of page, make navbar more transparent
+                navbar.style.background = 'rgba(10, 15, 28, 0.7)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+        });
+        
+        // =======================
+        // FORM SUBMISSION HANDLING
+        // =======================
+        
+        // Handle contact form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent actual form submission
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission (in real app, send to server)
+            alert(`Thank you, ${name}! Your message has been received. We'll get back to you within 24 hours.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // =======================
+        // MOBILE MENU FUNCTIONALITY
+        // =======================
+        
+        // Mobile menu toggle (for future enhancement)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            
+            // Toggle mobile menu visibility
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.width = '100%';
+                navMenu.style.background = 'rgba(10, 15, 28, 0.98)';
+                navMenu.style.padding = '1rem';
+            }
+        });
+        
+        // =======================
+        // INTERSECTION OBSERVER FOR ANIMATIONS
+        // =======================
+        
+        // Animate elements when they come into view
+        const observerOptions = {
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add animation class when element comes into view
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all project cards and news items for animation
+        document.querySelectorAll('.project-card, .news-item').forEach(el => {
+            // Set initial state for animation
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            // Start observing
+            observer.observe(el);
+        });
+        
+        // =======================
+        // PERFORMANCE OPTIMIZATION
+        // =======================
+        
+        // Throttle scroll events for better performance
+        let ticking = false;
+        
+        function updateNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 15, 28, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(10, 15, 28, 0.7)';
+            }
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
