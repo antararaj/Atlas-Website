@@ -11,4 +11,4 @@ The website includes:
 - A news page
 - A "Contact Us" Page
 
-All work/coding was done by Antara Rajgopal (2025) as a part of an intern for Atlas Space Corp., overseen by Colby Burnham.
+All work/coding was done by Antara Rajgopal (2025) as a part of an internship for Atlas Space Corp., overseen by Colby Burnham.
