@@ -23,7 +23,7 @@ body {
 }
 
 .logo {
-  height: 40px;
+  height: 100px;
 }
 
 .nav-right a {
@@ -534,4 +534,86 @@ button[type="submit"]:hover {
   .contact-info {
     padding: 0 15px;
   }
+}
+
+/* Portfolio Page */
+.portfolio-intro {
+  text-align: center;
+  padding: 60px 20px 30px;
+  color: #cbd6e4;
+}
+
+.portfolio-intro h1 {
+  font-size: 2.5rem;
+  color: #69c0ff;
+  margin-bottom: 10px;
+}
+
+.portfolio-intro p {
+  font-size: 1.2rem;
+  color: #a9bedf;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Portfolio Grid Layout */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+/* Portfolio Card & Hover */
+.portfolio-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 65%; /* 3:2 aspect ratio */
+}
+
+.portfolio-image-wrapper img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Hover Overlay */
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 25, 40, 0.85);
+  color: #cbe8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
 }
