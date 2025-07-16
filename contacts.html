@@ -2,41 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Nova AeroTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Atlas Space Corp</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Nova AeroTech</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="contacts.html">Contact</a></li>
-      </ul>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="pictures/atlas_space_logo.png" alt="Atlas Space Corp Logo" class="logo" />
+    </div>
+    <nav class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="news.html">News</a>
+      <a href="contacts.html">Contact</a>
     </nav>
   </header>
 
-  <section class="section">
-    <h2>Contact Us</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <div class="contact-info">
-      <p>Email: info@novaaerotech.com</p>
-      <p>Phone: (123) 456-7890</p>
-      <p>Address: 123 Flight Path Lane, Blacksburg, VA</p>
-    </div>
-  </section>
+  <main>
+    <section class="contact-top-blurb">
+      <h1>Contact Us</h1>
+      <p>
+        We're always looking for talented engineers and innovators. Interested in joining the Atlas Space Corp team? Reach out below!
+      </p>
+    </section>
 
+    <section class="contact-form-section">
+      <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="_replyto" required />
+
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section class="contact-info">
+      <h2>Our Contact Info</h2>
+      <p><strong>Email:</strong> info@atlasspacecorp.com</p>
+      <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+      <p><strong>Address:</strong> 123 Aerospace Drive, Mojave, CA 93501</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Nova AeroTech. All rights reserved.</p>
+    <img src="pictures/atlas_space_logo.png" alt="Atlas Space Corp Logo" class="footer-logo" />
+    <p>&copy; 2025 Atlas Space Corp. All rights reserved.</p>
   </footer>
 </body>
 </html>
