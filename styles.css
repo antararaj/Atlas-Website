@@ -617,3 +617,101 @@ button[type="submit"]:hover {
 .portfolio-card:hover .portfolio-overlay {
   opacity: 1;
 }
+
+/* Internship Page */
+.intern-intro {
+  max-width: 900px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+  color: #cbd6e4;
+  text-align: center;
+}
+
+.intern-intro h1 {
+  font-size: 2.5rem;
+  color: #69c0ff;
+  margin-bottom: 15px;
+}
+
+.intern-intro p {
+  font-size: 1.15rem;
+  color: #a9bedf;
+  margin-bottom: 30px;
+}
+
+.pdf-viewer {
+  border: 2px solid #305074;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Intern Gallery */
+.intern-gallery {
+  max-width: 1100px;
+  margin: 60px auto 80px;
+  padding: 0 20px;
+  text-align: center;
+  color: #cbd6e4;
+}
+
+.intern-gallery h2 {
+  font-size: 2rem;
+  color: #69c0ff;
+  margin-bottom: 10px;
+}
+
+.intern-gallery p {
+  font-size: 1rem;
+  color: #a9bedf;
+  margin-bottom: 40px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card Hover Reveal */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(10, 25, 40, 0.85);
+  color: #e0f4ff;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
