@@ -715,3 +715,27 @@ button[type="submit"]:hover {
 .gallery-card:hover .gallery-overlay {
   opacity: 1;
 }
+
+.abilities-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 2rem 0;
+}
+
+.abilities-list li {
+  margin-bottom: 1.5rem;
+  padding-left: 1.8rem;
+  position: relative;
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.abilities-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: #4da6ff;
+  font-size: 1.2rem;
+}
